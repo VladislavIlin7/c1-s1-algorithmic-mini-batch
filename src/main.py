@@ -1,3 +1,7 @@
+from src.algorithms.factorial import factorial
+from src.algorithms.factorial_recursive import factorial_recursive
+from src.algorithms.fibo import fibo
+from src.algorithms.fibo_recursive import fibo_recursive
 from src.power import power_function
 from src.constants import SAMPLE_CONSTANT
 
@@ -8,13 +12,13 @@ def main() -> None:
     :return: Данная функция ничего не возвращает
     """
 
-    target, degree = map(int, input("Введите два числа разделенные пробелом: ").split(" "))
 
-    result = power_function(target=target, power=degree)
 
-    print(result)
+    print(factorial(10))
+    print(factorial_recursive(10))
+    print(fibo(10))
+    print(fibo_recursive(10))
 
-    print(SAMPLE_CONSTANT)
 
 if __name__ == "__main__":
     main()
