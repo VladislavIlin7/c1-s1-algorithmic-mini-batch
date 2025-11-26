@@ -1,4 +1,9 @@
+from src.sorting.quick_sort import quick_sort
+
+
 def bucket_sort(a: list[float]) -> list[float]:
+    """Разбиваем числа по «корзинам», внутри корзин сортируем и объединяем результат."""
+
     if not a:
         return []
 
@@ -19,7 +24,7 @@ def bucket_sort(a: list[float]) -> list[float]:
 
     # сортируем каждую корзину
     for i in range(n):
-        buckets[i].sort()
+        quick_sort(buckets[i])
 
     # объединяем результат
     result = []

@@ -1,5 +1,7 @@
 def heapify(arr: list[int], heap_size: int, i: int) -> None:
-    # просейка вниз без рекурсии
+    """Просеиваем элемент вниз, чтобы восстановить свойства кучи"""
+
+    # просейка вниз
     while True:
         left = 2 * i + 1
         right = 2 * i + 2
@@ -16,6 +18,8 @@ def heapify(arr: list[int], heap_size: int, i: int) -> None:
         i = largest  # продолжаем просейку ниже
 
 def heap_sort(a: list[int]) -> list[int]:
+    """Строим двоичную кучу и постепенно вытаскиваем самый большой элемент в конец списка"""
+
     n = len(a)
     # построение кучи
     for i in range(n // 2 - 1, -1, -1):

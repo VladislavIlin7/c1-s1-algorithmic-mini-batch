@@ -1,8 +1,13 @@
 def counting_sort(a: list[int]) -> list[int]:
+    """Подсчитываем, сколько раз встречается каждое число, и по этим данным собираем отсортированный список"""
+
     minimum = min(a)
     maximum = max(a)
     k = maximum - minimum + 1
     count = [0] * k
+
+    if not a:
+        return []
 
     # частоты
     for x in a:
