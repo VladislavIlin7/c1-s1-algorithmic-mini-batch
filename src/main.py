@@ -3,7 +3,6 @@ from src.algorithms.factorial_recursive import factorial_recursive
 from src.algorithms.fibo import fibo
 from src.algorithms.fibo_recursive import fibo_recursive
 from src.power import power_function
-from src.constants import SAMPLE_CONSTANT
 
 
 def main() -> None:

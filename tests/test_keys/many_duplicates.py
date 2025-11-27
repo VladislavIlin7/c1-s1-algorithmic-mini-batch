@@ -4,9 +4,21 @@ import random
 def many_duplicates(n: int, k_unique: int = 5, *, seed=None) -> list[int]:
     """Массив из n элементов, но всего k_unique разных значений"""
 
+    if n <= 0:
+        return []
+
+    if k_unique < 1:
+        raise ValueError("k_unique должно быть >= 1")
+
+    # если уникальных больше чем элементов, сокращаем
+    if k_unique > n:
+        k_unique = n
+
     if seed is not None:
-        random.seed(seed)
+        rng = random.Random(seed)
+    else:
+        rng = random
 
-    base = [random.randint(0, 100) for _ in range(k_unique)]
+    base = [rng.randint(0, n) for _ in range(k_unique)]
 
-    return [random.choice(base) for _ in range(n)]
+    return [rng.choice(base) for _ in range(n)]

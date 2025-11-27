@@ -3,7 +3,7 @@ from tests.benchmarks.timeit_once import timeit_once
 
 def benchmark_sorts(arrays: dict[str, list], algos: dict[str, callable]) -> dict[str, dict[str, float]]:
     """
-    Запускает каждую сортировку из algos на каждом массиве из arrays
+    Запускает каждую сортировку из algorithms на каждом массиве из arrays
     и возвращает словарь с временами работы
     """
     results = {}

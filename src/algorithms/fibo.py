@@ -1,4 +1,10 @@
 def fibo(n: int) -> int:
+
+    if not isinstance(n, int):
+        raise TypeError("Последовательность Фибоначчи определена только для целых чисел")
+    if n < 0:
+        raise ValueError("Последовательность Фибоначчи не определена на отрицательных числах")
+
     a = 0
     b = 1
     for i in range(n):

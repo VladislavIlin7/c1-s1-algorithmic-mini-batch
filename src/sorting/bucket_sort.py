@@ -24,7 +24,7 @@ def bucket_sort(a: list[float]) -> list[float]:
 
     # сортируем каждую корзину
     for i in range(n):
-        quick_sort(buckets[i])
+        buckets[i] = quick_sort(buckets[i])
 
     # объединяем результат
     result = []
