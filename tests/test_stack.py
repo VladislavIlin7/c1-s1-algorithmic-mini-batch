@@ -1,7 +1,7 @@
 import pytest
 
 from src.structures.stack import Stack
-from src.exceptions.exceptions import StackIsEmptyError
+from src.exceptions.exceptions import StackIsEmptyException
 
 
 def test_basic_push_pop():
@@ -59,11 +59,11 @@ def test_peek():
 def test_errors_on_empty():
     s = Stack()
 
-    with pytest.raises(StackIsEmptyError):
+    with pytest.raises(StackIsEmptyException):
         s.pop()
 
-    with pytest.raises(StackIsEmptyError):
+    with pytest.raises(StackIsEmptyException):
         s.peek()
 
-    with pytest.raises(StackIsEmptyError):
+    with pytest.raises(StackIsEmptyException):
         s.min()

@@ -1,33 +1,38 @@
 def radix_sort(a: list[int]) -> list[int]:
-    """Сортируем числа по цифрам: сначала по единицам, потом десяткам и дальше"""
+    """
+    Поразрядная сортировка для списка неотрицательных целых чисел
+
+    :param a: список натуральных и неотрицательных целых чисел
+    :return: новый отсортированный список
+    """
 
     if not a:
         return []
 
-    max_val = max(a)
-    exp = 1  # текущий разряд (1, 10, 100, ...)
+    max_num = max(a)
+    exp = 1
 
-    while max_val // exp > 0:
+    while max_num // exp > 0:
         n = len(a)
         output = [0] * n
-        count = [0] * 10  # для цифр 0–9
+        count = [0] * 10
 
-        # считаем частоты цифр
-        for x in a:
-            digit = (x // exp) % 10
-            count[digit] += 1
+        # Подсчивает количество вхождений каждой цифры
+        for num in a:
+            index = (num // exp) % 10
+            count[index] += 1
 
-        # преобразуем частоты в накопленные позиции
+        # Преобразовать count[] в фактические позиции
         for i in range(1, 10):
             count[i] += count[i - 1]
 
-        # заполняем выходной массив справа налево (стабильность)
+        # Построить выходной массив (в обратном порядке для стабильности)
         for i in range(n - 1, -1, -1):
-            digit = (a[i] // exp) % 10
-            count[digit] -= 1
-            output[count[digit]] = a[i]
+            index = (a[i] // exp) % 10
+            output[count[index] - 1] = a[i]
+            count[index] -= 1
 
-        # копируем обратно
+        # Копировать вывод в arr[]
         for i in range(n):
             a[i] = output[i]
 

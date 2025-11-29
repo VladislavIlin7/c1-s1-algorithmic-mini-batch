@@ -1,39 +1,46 @@
+from functools import cmp_to_key
 from typing import Callable, Any, TypeVar
+import copy
 
-from src.exceptions.exceptions import CmpAndKeyTogetherError
+from src.exceptions.exceptions import CmpAndKeyTogetherException
 
 T = TypeVar("T")
 
 
-def bubble_sort(a: list[T],key: Callable[[T], Any] | None = None, cmp: Callable[[Any, Any], int] | None = None,) -> list[T]:
+def bubble_sort(
+        a: list[T],
+        key: Callable[[T], Any] | None = None,
+        cmp: Callable[[T, T], int] | None = None,
+) -> list[T]:
     """
-    Сортировка пузырьком с поддержкой key и cmp
-    key(x) -> ключ для сравнения
-    cmp(a, b) -> отрицательное, если a<b; положительное, если a>b; 0 если равно
+    Сортировка пузырьком O(n^2)
+
+    :param a: список элементов одного типа
+    :param key: функция получения ключа сравнения
+    :param cmp: функция сравнения двух элементов
+    :return: новый отсортированный список
+
     """
 
     if key is not None and cmp is not None:
-        raise CmpAndKeyTogetherError()
+        raise CmpAndKeyTogetherException()
 
-    n = len(a)
-    if n <= 1:
-        return a
+    if cmp is not None:
+        key = cmp_to_key(cmp)
 
-    # key по умолчанию
     if key is None:
-        key = lambda x: x
+        key = lambda x: x  # type: ignore[assignment]
 
-    # cmp по умолчанию (возвращает -1 / 0 / 1)
-    if cmp is None:
-        cmp = lambda x, y: (x > y) - (x < y)
+    result = copy.deepcopy(a)
+    n = len(result)
 
     for i in range(n - 1):
         swapped = False
         for j in range(n - i - 1):
-            if cmp(key(a[j]), key(a[j + 1])) > 0:
-                a[j], a[j + 1] = a[j + 1], a[j]
+            if key(result[j]) > key(result[j + 1]):
+                result[j], result[j + 1] = result[j + 1], result[j]
                 swapped = True
         if not swapped:
             break
 
-    return a
+    return result

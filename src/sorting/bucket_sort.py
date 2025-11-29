@@ -2,7 +2,14 @@ from src.sorting.quick_sort import quick_sort
 
 
 def bucket_sort(a: list[float]) -> list[float]:
-    """Разбиваем числа по «корзинам», внутри корзин сортируем и объединяем результат."""
+    """
+    Быстрая сортировка O(n log n) в среднем
+
+    :param a: список элементов одного типа
+    :param key: функция получения ключа сортировки
+    :param cmp: функция сравнения двух элементов
+    :return: новый отсортированный список
+    """
 
     if not a:
         return []

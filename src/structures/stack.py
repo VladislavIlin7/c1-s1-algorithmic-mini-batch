@@ -1,4 +1,4 @@
-from src.exceptions.exceptions import StackIsEmptyError
+from src.exceptions.exceptions import StackIsEmptyException
 from src.structures.linked_list import LinkedList
 
 
@@ -10,7 +10,7 @@ class Stack:
     def pop(self):
         """Берёт элемент сверху стэка"""
         if self.list.is_empty():
-            raise StackIsEmptyError()
+            raise StackIsEmptyException()
 
         value = self.list.pop_front()
 
@@ -35,14 +35,14 @@ class Stack:
         """Минимум стэка"""
 
         if not self.min_arr:
-            raise StackIsEmptyError()
+            raise StackIsEmptyException()
         return self.min_arr[-1]
 
     def peek(self) -> int:
         """Смотрим на вершину стека, не снимая элемент"""
 
         if self.list.is_empty():
-            raise StackIsEmptyError()
+            raise StackIsEmptyException()
         return self.list.head.value
 
     def __len__(self) -> int:
