@@ -14,8 +14,3 @@ ALL_SORTS = SORTS = {
     "radix": radix_sort,
 }
 
-SORTS_FLOAT = {
-    "bubble": bubble_sort,
-    "bucket": bucket_sort,
-    "heap": heap_sort,
-}

@@ -11,7 +11,6 @@ def timeit_once(func, *args, **kwargs) -> float:
     :return: время выполнения в секундах
     """
 
-
     time_start: float = perf_counter()
     func(*args, **kwargs)
     time_end: float = perf_counter()

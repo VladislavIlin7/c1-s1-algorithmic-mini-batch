@@ -9,6 +9,7 @@ def benchmark_sorts(arrays: dict[str, list], algos: dict[str, callable]) -> dict
     :param algos: словарь алгоритмов сортировки, где ключ это название, а значение функция
     :return: словарь с временем выполнения каждой сортировки на каждом наборе данных
     """
+
     results = {}
 
     for arr_name, arr in arrays.items():

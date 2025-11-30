@@ -19,7 +19,6 @@ def bubble_sort(
     :param key: функция получения ключа сравнения
     :param cmp: функция сравнения двух элементов
     :return: новый отсортированный список
-
     """
 
     if key is not None and cmp is not None:
