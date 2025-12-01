@@ -1,3 +1,5 @@
+import sys
+
 from src.cli.algorithms_menu import algorithms_menu
 from src.cli.sort_menu import sort_menu
 from src.cli.stack_menu import stack_menu
@@ -8,8 +10,8 @@ def main() -> None:
     Главное меню CLI
     """
 
-    while True:
-        print("\n=== Меню ===")
+    while sys.stdin:
+        print("\n=== Главное меню ===")
         print("1 - Сортировки")
         print("2 - Стек")
         print("3 - Алгоритмы (факториал, Фибоначчи)")

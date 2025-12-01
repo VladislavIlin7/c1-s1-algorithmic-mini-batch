@@ -22,10 +22,8 @@ def choose_array(algo_name: str) -> list[int] | list[float] | None:
         choice = input("> ").strip()
 
         if choice == "0":
-            # явная отмена → выходим в меню сортировок
             return None
 
-        # ----- РУЧНОЙ ВВОД -----
         if choice == "1":
             while True:
                 line = input(
@@ -44,7 +42,6 @@ def choose_array(algo_name: str) -> list[int] | list[float] | None:
             # вернулись из внутреннего цикла — снова показать меню способов
             continue
 
-        # дальше — генерация массивов
         if choice not in {"2", "3", "4", "5"}:
             print("Неизвестный вариант, попробуйте ещё раз")
             continue

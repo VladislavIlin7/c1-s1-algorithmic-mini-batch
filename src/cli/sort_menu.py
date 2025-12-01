@@ -51,7 +51,7 @@ def sort_menu() -> None:
 
         # вызов сортировки
         if key is not None or cmp is not None:
-            result = algo(arr, key=key, cmp=cmp)  # type: ignore[arg-type]
+            result = algo(arr, key=key, cmp=cmp)
         else:
             result = algo(arr)  # type: ignore[call-arg]
 
