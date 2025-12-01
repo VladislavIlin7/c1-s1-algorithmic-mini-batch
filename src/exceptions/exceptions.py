@@ -1,7 +1,7 @@
 class ApplicationException(Exception):
     """Базовая ошибка"""
     def __init__(self, error: str):
-        super().__init__(f"Ошибка: {error}")
+        super().__init__(f"{error}")
 
 class StackIsEmptyException(ApplicationException):
     def __init__(self):

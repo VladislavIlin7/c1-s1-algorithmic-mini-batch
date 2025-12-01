@@ -13,28 +13,13 @@ def radix_sort(a: list[int]) -> list[int]:
     exp = 1
 
     while max_num // exp > 0:
-        n = len(a)
-        output = [0] * n
-        count = [0] * 10
+        buckets = [[] for _ in range(10)]
 
-        # Подсчивает количество вхождений каждой цифры
         for num in a:
             index = (num // exp) % 10
-            count[index] += 1
+            buckets[index].append(num)
 
-        # Преобразовать count[] в фактические позиции
-        for i in range(1, 10):
-            count[i] += count[i - 1]
-
-        # Построить выходной массив (в обратном порядке для стабильности)
-        for i in range(n - 1, -1, -1):
-            index = (a[i] // exp) % 10
-            output[count[index] - 1] = a[i]
-            count[index] -= 1
-
-        # Копировать вывод в arr[]
-        for i in range(n):
-            a[i] = output[i]
+        a = [num for bucket in buckets for num in bucket]
 
         exp *= 10
 

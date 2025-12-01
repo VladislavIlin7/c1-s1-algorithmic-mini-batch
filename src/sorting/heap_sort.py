@@ -1,3 +1,4 @@
+import copy
 from typing import Callable, Any, TypeVar
 from functools import cmp_to_key
 
@@ -34,7 +35,7 @@ def heap_sort(
     cmp: Callable[[T, T], int] | None = None,
 ) -> list[T]:
     """
-    Сортировка на куче для элементов которые можно сравнить напрямую или через key или cmp
+    Сортировка на куче для элементов которые можно сравнить напрямую через key или cmp
 
     :param a: список элементов одного типа
     :param key: функция получения ключа сортировки
@@ -51,9 +52,9 @@ def heap_sort(
     if cmp is not None:
         key = cmp_to_key(cmp)
     if key is None:
-        key = lambda x: x  # type: ignore[assignment]
+        key = lambda x: x
 
-    arr = a.copy()
+    arr = copy.deepcopy(a)
     size = len(arr)
 
     # строим кучу

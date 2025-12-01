@@ -28,7 +28,7 @@ def bubble_sort(
         key = cmp_to_key(cmp)
 
     if key is None:
-        key = lambda x: x  # type: ignore[assignment]
+        key = lambda x: x
 
     result = copy.deepcopy(a)
     n = len(result)

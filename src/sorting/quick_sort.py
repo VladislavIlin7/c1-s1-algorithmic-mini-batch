@@ -14,7 +14,7 @@ def quick_sort(
     """
     Быстрая сортировка с поддержкой key или cmp
 
-    Делит массив на части относительно опорного элемента и рекурсивно сортирует
+    Делит массив на части относительно опорного элемента и рекурсивно сортирует O(n log n)
 
     :param a: список элементов который нужно отсортировать
     :param key: функция получения ключа сортировки
@@ -32,7 +32,7 @@ def quick_sort(
     if cmp is not None:
         key = cmp_to_key(cmp)
     if key is None:
-        key = lambda x: x  # type: ignore[assignment]
+        key = lambda x: x
 
     pivot = a[len(a) // 2]
     pkey = key(pivot)

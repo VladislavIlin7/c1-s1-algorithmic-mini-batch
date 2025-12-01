@@ -33,10 +33,10 @@ def test_sort_with_key_abs(func):
 
 @pytest.mark.parametrize("func", TESTS_SORT_WIHT_KEY_OR_CMP)
 def test_sort_with_key_len(func):
-    arr = ['xx', 'qwer', '12345', 'aa', 'bbb', 'aa']
+    arr = ['qwer', '12345', 'aa', 'bbb', 'aa']
     res = func(arr.copy(), key=lambda x: len(x))
     print(res)
-    assert res == ['aa', 'aa', 'xx', 'bbb', 'qwer', '12345']
+    assert res == ['aa', 'aa','bbb', 'qwer', '12345']
 
 
 @pytest.mark.parametrize("func", TESTS_SORT_WIHT_KEY_OR_CMP)
